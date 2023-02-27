@@ -1,0 +1,16 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Thesis.ReverseProxy", "Thesis.ReverseProxy\Thesis.ReverseProxy.csproj", "{87719364-0EEB-4FF2-9C2D-FEC72FA4E820}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{87719364-0EEB-4FF2-9C2D-FEC72FA4E820}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{87719364-0EEB-4FF2-9C2D-FEC72FA4E820}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{87719364-0EEB-4FF2-9C2D-FEC72FA4E820}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{87719364-0EEB-4FF2-9C2D-FEC72FA4E820}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
