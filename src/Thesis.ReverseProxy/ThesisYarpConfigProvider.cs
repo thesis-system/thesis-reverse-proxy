@@ -21,12 +21,14 @@ public class ThesisYarpConfigProvider : IProxyConfigProvider
         private const string AuthCluster = "auth_cluster";
         private const string RequestsCluster = "requests_cluster";
         private const string ImagesCluster = "images_cluster";
+        private const string AssetsCluster = "assets_cluster";
 
         private static readonly List<(string service, string[] controllers, string prefix)> ServicesMetadata = new()
         {
             (AuthCluster, new[] { "auth", "users" }, "auth"),
             (RequestsCluster, new[] { "requests" }, "requests"),
             (ImagesCluster, new[] { "images" }, "images"),
+            (AssetsCluster, new[] { "assets" }, "assets"),
         };
         
         private readonly CancellationTokenSource _cts = new();

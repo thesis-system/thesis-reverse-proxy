@@ -22,6 +22,7 @@ app.UseSwaggerUI(c =>
     c.SwaggerEndpoint($"/swagger/auth/v1/swagger.json", "Thesis.Auth v1");
     c.SwaggerEndpoint($"/swagger/requests/v1/swagger.json", "Thesis.Requests v1");
     c.SwaggerEndpoint($"/swagger/images/v1/swagger.json", "Thesis.Images v1");
+    c.SwaggerEndpoint($"/swagger/assets/v1/swagger.json", "Thesis.Assets v1");
 });
 
 app.UseRouting();
