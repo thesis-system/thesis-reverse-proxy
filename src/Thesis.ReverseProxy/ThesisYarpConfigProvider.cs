@@ -25,7 +25,7 @@ public class ThesisYarpConfigProvider : IProxyConfigProvider
 
         private static readonly List<(string service, string[] controllers, string prefix)> ServicesMetadata = new()
         {
-            (AuthCluster, new[] { "auth", "users" }, "auth"),
+            (AuthCluster, new[] { "auth", "ownership", "users" }, "auth"),
             (RequestsCluster, new[] { "requests" }, "requests"),
             (ImagesCluster, new[] { "images" }, "images"),
             (AssetsCluster, new[] { "assets" }, "assets"),
@@ -52,10 +52,11 @@ public class ThesisYarpConfigProvider : IProxyConfigProvider
                 MakeClusterConfig(AuthCluster, thesisServices.AuthUrl),
                 MakeClusterConfig(RequestsCluster, thesisServices.RequestsUrl),
                 MakeClusterConfig(ImagesCluster, thesisServices.ImagesUrl),
+                MakeClusterConfig(AssetsCluster, thesisServices.AssetsUrl),
             };
         }
         
-        private RouteConfig MakeSwaggerRoute(string prefix, string service) =>
+        private static RouteConfig MakeSwaggerRoute(string prefix, string service) =>
             new RouteConfig
                 {
                     RouteId = $"{prefix}-route",
@@ -65,15 +66,15 @@ public class ThesisYarpConfigProvider : IProxyConfigProvider
                 .WithTransformPathRemovePrefix(prefix: $"/swagger/{prefix}")
                 .WithTransformPathPrefix(prefix: "/swagger");
 
-        private RouteConfig MakeRoute((string controller, string service) description) =>
-            new RouteConfig
+        private static RouteConfig MakeRoute((string controller, string service) description) =>
+            new()
             {
                 RouteId = $"{description.service}-{description.controller}-route",
                 ClusterId = description.service,
                 Match = new RouteMatch {Path = $"/{description.controller}/{{**catch-all}}"},
             };
 
-        private ClusterConfig MakeClusterConfig(string clusterName, string url) => new ClusterConfig
+        private static ClusterConfig MakeClusterConfig(string clusterName, string url) => new()
         {
             ClusterId = clusterName,
             Destinations = new Dictionary<string, DestinationConfig>
